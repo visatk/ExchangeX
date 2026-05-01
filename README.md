@@ -15,35 +15,6 @@
 * **Deployment:** Cloudflare Pages (Frontend) + Cloudflare Workers (Backend API)
 * **Tooling:** Wrangler 4.82.2, latest `@cloudflare/vite-plugin`
 
----
-
-## 📂 ৩. প্রজেক্ট স্ট্রাকচার (Monorepo Architecture)
-
-```text
-crypto-exchange-platform/
-├── package.json
-├── wrangler.jsonc             # Wrangler 4.82.2 config
-├── apps/
-│   ├── frontend/              # React + Vite App
-│   │   ├── src/
-│   │   │   ├── api/           # TanStack Query hooks
-│   │   │   ├── components/    # shadcn/ui + Tailwind CSS v4.2
-│   │   │   ├── features/      # Feature slices (auth, exchange, admin, user)
-│   │   │   ├── lib/           # Zustand stores, Utils
-│   │   │   └── routes/
-│   └── api/                   # Hono API
-│       ├── src/
-│       │   ├── controllers/
-│       │   ├── middlewares/   # JWT, Admin/Operator Role checking
-│       │   ├── services/
-│       │   └── cron.ts        # Auto rate updater
-├── packages/
-│   ├── db/                    # Drizzle ORM Schema & connection
-│   └── types/                 # Shared TypeScript interfaces
-```
-
----
-
 ## 🗄️ ৪. ডাটাবেস স্কিমা (Database Schema - D1)
 * `users`: ব্যবহারকারীদের তথ্য (Role: admin, operator, user), ব্যালেন্স।
 * `currencies`: কারেন্সি লিস্ট (BTC, USD, BDT, etc.), আইকন, স্ট্যাটাস।
